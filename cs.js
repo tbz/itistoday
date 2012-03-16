@@ -1,44 +1,23 @@
 // client-side js
 
+// - touch/mobile stuff
 // TODO window.navigator.standalone
-
 document.ontouchmove = function (e) {
 	e.preventDefault();
 };
 
-
+// - common
 (function () {
-
-var dayNames = [
-	"SUNDAY",
-	"MONDAY",
-	"TUESDAY",
-	"WEDNESDAY",
-	"THURSDAY",
-	"FRIDAY",
-	"SATURDAY"
-];
-
-var el = document.getElementsByTagName("p")[0];
-
-(function () {
-	var now = new Date();
-	document.getElementsByTagName("body")[0].className = dayNames[ now.getDay() ].toLowerCase();
-
-	setDisplayString(el);
-	window.setTimeout( arguments.callee, 10000 );
+	document
+		.getElementsByTagName("p")[0]
+		.innerHTML = exports.getDayFullString();
+	// For styling
+	document
+		.getElementsByTagName("body")[0]
+		.className = exports.getDayName().toLowerCase();
+	// Reset every ten seconds
+	window.setTimeout(
+		arguments.callee, 10000
+	);
 })();
 
-
-function getString()
-{
-	var now = new Date();
-	return "IT IS " + dayNames[ now.getDay() ] + ".";
-}
-
-function setDisplayString(el)
-{
-	el.innerHTML = getString();
-}
-
-})();
