@@ -1,4 +1,8 @@
-exports = (function () {
+(function () {
+	if (typeof exports === "undefined") {
+		exports = {};
+	}
+
 	var dayNames = [
 		"SUNDAY",
 		"MONDAY",
@@ -8,14 +12,13 @@ exports = (function () {
 		"FRIDAY",
 		"SATURDAY"
 	];
-	return {
-		getDayName: function () {
-			var now = new Date();
-			return dayNames[ now.getDay() ];
-		},
-		getDayFullString: function () {
-			return "IT IS " + this.getDayName() + ".";
-		}
+
+	exports.getDayName = function getDayName() {
+		var now = new Date();
+		return dayNames[ now.getDay() ];
 	};
+	exports.getDayFullString = function getDayFullString() {
+		return "IT IS " + this.getDayName() + ".";
+	}
 })();
 
