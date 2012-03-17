@@ -1,7 +1,7 @@
-* { font-size: 100%; margin: 0; padding: 0; }
-body { font: 300 128px "Helvetica Neue", Helvetica, Arial, sans-serif; padding: 1em 4px; text-align: center; }
-p { bottom: 50%; position: absolute; width: 100%; }
+body { font: 300 128px "Helvetica Neue", Helvetica, Arial, sans-serif; text-align: center; }
+p { bottom: 50%; position: absolute; width: 100%; z-index: 100; }
+img { display: block; position: absolute; }
 
-.friday p { color: #9d261d }
+.friday p { color: #9d261d; text-shadow: 0 0 6px #FFF; }
 .saturday p, .sunday p { color: #999; }
 
