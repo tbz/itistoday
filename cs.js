@@ -1,5 +1,5 @@
 // client-side js
-(function () {
+
 // - touch/mobile stuff
 // TODO window.navigator.standalone
 document.ontouchmove = function (e) {
@@ -21,8 +21,6 @@ var Friday = {
 
 		var opacity = 0;
 		function doIt() {
-			img.style.height = "100%";
-			img.style.width  = "100%";
 			img.style.opacity = opacity;
 			opacity = Math.round((opacity + 0.01) * 100) / 100;
 			if (opacity > 1) {
@@ -57,6 +55,4 @@ var Friday = {
 	window.setTimeout(
 		arguments.callee, 10000
 	);
-})();
-
 })();
