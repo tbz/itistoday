@@ -29,7 +29,9 @@ http.createServer(function (req, res) {
 		res.writeHead(200, {'Content-Type': type});
 
 		if (printToday) {
-			data = data.replace('IT IS TODAY.', c.getDayFullString());
+			data = data
+				.replace('IT IS TODAY.', c.getDayFullString())
+				.replace('<body>', '<body class="' + c.getDayName().toLowerCase() + '">');
 		}
 		res.end( data );
 	});
