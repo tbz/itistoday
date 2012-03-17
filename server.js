@@ -24,12 +24,16 @@ http.createServer(function (req, res) {
 			break;
 	}
 
-	fs.readFile(view, function (err, data) {
+	fs.readFile(view, 'UTF-8', function (err, data) {
 		if (err) throw err;
 		res.writeHead(200, {'Content-Type': type});
+
+		if (printToday) {
+			data = data.replace('IT IS TODAY.', c.getDayFullString());
+		}
 		res.end( data );
 	});
-}).listen(1337, "192.168.99.198");
+}).listen(1337);
 
 console.log( 'Server running' );
 
