@@ -1,5 +1,5 @@
 body { font: 300 128px "Helvetica Neue", Helvetica, Arial, sans-serif; text-align: center; }
-p { bottom: 50%; position: absolute; width: 100%; z-index: 100; }
+p { bottom: 50%; margin: 0; position: absolute; width: 100%; z-index: 100; }
 img { display: block; position: absolute; }
 
 .friday p { color: #9d261d; text-shadow: 0 0 6px #FFF; }
