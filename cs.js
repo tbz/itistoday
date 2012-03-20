@@ -6,6 +6,7 @@ document.ontouchmove = function (e) {
 	e.preventDefault();
 };
 
+// - day specific
 var Friday = {
 	_inited: false,
 	init: function () {
