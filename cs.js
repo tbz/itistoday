@@ -20,9 +20,13 @@ var Friday = {
 
 		document.body.appendChild( img );
 
+		var p = document.getElementsByTagName("p")[0];
+
 		var opacity = 0;
 		function doIt() {
 			img.style.opacity = opacity;
+			p.style.opacity = 1 - opacity;
+
 			opacity = Math.round((opacity + 0.01) * 100) / 100;
 			if (opacity > 1) {
 				return true;
@@ -35,6 +39,18 @@ var Friday = {
 				window.setTimeout(arguments.callee, 1000);
 			}
 		})();
+
+		this.img = img;
+		this.p = p;
+	},
+	destroy: function () {
+		if (this._inited) {
+			document.body.removeChild( this.img );
+			p.style.opacity = 1;
+			this._inited = false;
+			return true;
+		}
+		return false;
 	}
 };
 
@@ -43,6 +59,8 @@ var Friday = {
 	var today = exports.getDayName();
 	if (today == 'FRIDAY') {
 		Friday.init();
+	} else {
+		Friday.destroy();
 	}
 
 	document
